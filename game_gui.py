@@ -17,8 +17,11 @@ class NumberGuessingGame:
         self.entry = tk.Entry(root, font=("Arial", 14))
         self.entry.pack(pady=10)
         
-        self.guess_button = tk.Button(root, text="Guess", command=self.check_guess)
+        # Button with color and hover effect
+        self.guess_button = tk.Button(root, text="Guess", command=self.check_guess, bg="#4CAF50", fg="white")
         self.guess_button.pack(pady=5)
+        self.guess_button.bind("<Enter>", lambda e: self.guess_button.config(bg="#45a049"))
+        self.guess_button.bind("<Leave>", lambda e: self.guess_button.config(bg="#4CAF50"))
         
         self.result_label = tk.Label(root, text="", font=("Arial", 12))
         self.result_label.pack(pady=10)
