@@ -15,6 +15,7 @@ def play_game():
     
     number = random.randint(1, max_num)
     attempts = 0
+    best_score = None
     
     print(f"I'm thinking of a number between 1 and {max_num}.")
     
@@ -28,7 +29,14 @@ def play_game():
             print("Too high!")
         else:
             print(f"Correct! You won in {attempts} attempts!")
+            if best_score is None or attempts < best_score:
+                best_score = attempts
+                print(f"New best score: {best_score} attempts!")
             break
+    
+    play_again = input("Play again? (yes/no): ")
+    if play_again.lower() == 'yes':
+        play_game()
 
 if __name__ == "__main__":
     play_game()
